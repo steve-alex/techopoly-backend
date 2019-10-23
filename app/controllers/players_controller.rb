@@ -21,10 +21,10 @@ class PlayersController < ApplicationController
 
     def update
         player = Player.find(params[:id])
-        byebug
+        
         if player
             player.update(money: params[:player][:money])
-            render json: player
+            render json: PlayerSerializer.new(player).to_serialized_json
         else
             render json:{message: 'Player could not be updated.'}
         end

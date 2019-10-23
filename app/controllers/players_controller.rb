@@ -1,4 +1,5 @@
 class PlayersController < ApplicationController
+    protect_from_forgery :except => [:update, :show, :create]
 
     def create
         player = Player.create(player_params)

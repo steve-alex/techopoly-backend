@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-
+    protect_from_forgery :except => [:update, :show, :create]
     def create
         company = Company.create(company_params)
         if company.save
@@ -19,8 +19,9 @@ class CompaniesController < ApplicationController
     end
 
     def update
-        company = Company.new(company_params)
-        if company.update(company_params)
+        company = Company.find(params[:id])
+        if company
+            company.update(player_id: params[:player][:id])
             render json: company
         else 
             render json: {message: "Cannot update the company."}

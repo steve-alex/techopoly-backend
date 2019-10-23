@@ -20,9 +20,10 @@ class CompaniesController < ApplicationController
 
     def update
         company = Company.find(params[:id])
+        byebug
         if company
             company.update(player_id: params[:player][:id])
-            render json: company
+            render json: CompanySerializer.new(company).to_serialized_json
         else 
             render json: {message: "Cannot update the company."}
         end

@@ -20,9 +20,11 @@ class PlayersController < ApplicationController
     end
 
     def update
-        player = Player.update(player_params)
-        if player.save
-            render json: player, only: [:id, :name, :money, :position, :game_id]
+        player = Player.find(params[:id])
+        byebug
+        if player
+            player.update(money: params[:player][:money])
+            render json: player
         else
             render json:{message: 'Player could not be updated.'}
         end

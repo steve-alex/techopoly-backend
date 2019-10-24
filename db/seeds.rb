@@ -4,9 +4,9 @@ Company.destroy_all
 
 game1 = Game.create(player_turn: 0)
 
-player1 = Player.create(name: "Bank", money: 1000000, position:0)
-player2 = Player.create(name: "Andrius", money: 10000000, position: 0)
-player3 = Player.create(name: "Steve", money: 10000000, position: 0)
+player1 = Player.create(name: "Bank", money: 10000000, position:0)
+player2 = Player.create(name: "Andrius", money: 30000, position: 0)
+player3 = Player.create(name: "Steve", money: 30000, position: 0)
 
 company1 = Company.create(name: "Apple", industry: "Conglomerate", price: 15500, tile_number: 32, servers: 0)
 company2 = Company.create(name: "Amazon", industry: "Conglomerate", price: 15000, tile_number: 31, servers: 0)

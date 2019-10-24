@@ -21,7 +21,6 @@ class PlayersController < ApplicationController
 
     def update
         player = Player.find(params[:id])
-        
         if player
             player.update(money: params[:player][:money])
             render json: PlayerSerializer.new(player).to_serialized_json

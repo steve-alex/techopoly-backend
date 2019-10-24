@@ -1,5 +1,11 @@
 class CompaniesController < ApplicationController
-    protect_from_forgery :except => [:update, :show, :create]
+    protect_from_forgery :except => [:update, :show, :create, :index]
+    
+    def index
+        companies = Company.all
+        render json: CompanySerializer.new(companies)
+
+    end
     def create
         company = Company.create(company_params)
         if company.save
@@ -20,7 +26,6 @@ class CompaniesController < ApplicationController
 
     def update
         company = Company.find(params[:id])
-        byebug
         if company
             company.update(player_id: params[:player][:id])
             render json: CompanySerializer.new(company).to_serialized_json

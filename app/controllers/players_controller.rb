@@ -29,6 +29,11 @@ class PlayersController < ApplicationController
         end
     end
 
+    def give_up
+        reset = %x( echo 'rake db:reset')
+        reset = %x[ #{cmd} ]
+    end
+
     private
 
     def player_params

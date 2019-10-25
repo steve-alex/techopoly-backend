@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-    protect_from_forgery :except => [:update, :show, :create, :index]
+    protect_from_forgery :except => [:update, :show, :create, :index, :funding_round]
     
     def index
         companies = Company.all
@@ -26,8 +26,20 @@ class CompaniesController < ApplicationController
 
     def update
         company = Company.find(params[:id])
+        # byebug
         if company
             company.update(player_id: params[:player][:id])
+            render json: CompanySerializer.new(company).to_serialized_json
+        else 
+            render json: {message: "Cannot update the company."}
+        end
+    end
+
+    def funding_round
+        company = Company.find(params[:id])
+        # byebug
+        if company
+            company.update(price: params[:price])
             render json: CompanySerializer.new(company).to_serialized_json
         else 
             render json: {message: "Cannot update the company."}

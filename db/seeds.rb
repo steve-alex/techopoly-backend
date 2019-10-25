@@ -10,7 +10,7 @@ player3 = Player.create(name: "Steve", money: 30000, position: 0)
 
 company1 = Company.create(name: "Apple", industry: "Conglomerate", price: 15500, tile_number: 32, servers: 0)
 company2 = Company.create(name: "Amazon", industry: "Conglomerate", price: 15000, tile_number: 31, servers: 0)
-company3 = Company.create(name: "Facebook", industry: "Social Media", price: 14500, tile_number: 29, servers: 0)
+company3 = Company.create(name: "Facebook", industry: "Social Media", price: 14500, tile_number: 28, servers: 0)
 company4 = Company.create(name: "Google", industry: "Conglomerate", price: 14000, tile_number: 26, servers: 0)
 company5 = Company.create(name: "Uber", industry: "travel", price: 13500, tile_number: 25, servers: 0)
 company6 = Company.create(name: "Deliveroo", industry: "Food", price: 12000, tile_number: 22, servers: 0)

@@ -1,6 +1,17 @@
 class PlayersController < ApplicationController
     protect_from_forgery :except => [:update, :show, :create]
 
+    # def funding_round
+    #     player = Player.find(params[:id])
+    #     byebug
+    #     if player
+    #         player.update(player.companies )
+    #         render json: PlayerSerializer.new(player).to_serialized_json
+    #     else
+    #         render json:{message: 'Player could not be updated.'}
+    #     end
+    # end
+
     def create
         player = Player.create(player_params)
         if player.save
@@ -21,6 +32,7 @@ class PlayersController < ApplicationController
 
     def update
         player = Player.find(params[:id])
+        
         if player
             player.update(money: params[:player][:money])
             render json: PlayerSerializer.new(player).to_serialized_json
@@ -33,6 +45,7 @@ class PlayersController < ApplicationController
         reset = %x( echo 'rake db:reset')
         reset = %x[ #{cmd} ]
     end
+
 
     private
 
